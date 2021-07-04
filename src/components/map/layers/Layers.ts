@@ -1,16 +1,13 @@
 import TileLayer from "ol/layer/Tile";
-import { OSM } from "ol/source";
+import { OSM, Vector as VectorSource } from "ol/source";
 import VectorLayer from "ol/layer/Vector";
-import VectorSource from "ol/source/Vector";
-import Style from "ol/style/Style";
-import Fill from "ol/style/Fill";
-import { Stroke, Circle as CircleStyle } from "ol/style";
+import { Stroke, Circle as CircleStyle, Style, Fill } from "ol/style";
 
 const raster = new TileLayer({
   source: new OSM(),
 });
 
-const source = new VectorSource({ wrapX: false });
+const source = new VectorSource();
 
 const vector = new VectorLayer({
   source,
