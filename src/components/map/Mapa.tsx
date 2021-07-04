@@ -4,13 +4,14 @@ import { view } from "./views/Views";
 import { layers } from "./layers/Layers";
 import { defaults } from "ol/control";
 
+import "ol/ol.css";
+import { addInteraction } from "./interactions/Draw";
+
 const Mapa: React.FC = () => {
   const [map, setMap] = React.useState<Map>();
 
   const mapRef = useRef<any>();
   const infoRef = useRef<any>();
-
-  // mapRef.current = map
 
   useEffect(() => {
     const mapInstance = new Map({
@@ -24,16 +25,9 @@ const Mapa: React.FC = () => {
       }),
     });
 
-    mapInstance.on("click", handleClick);
-
     setMap(mapInstance);
+    addInteraction(map);
   }, []);
-
-  const handleClick = (e: MapBrowserEvent) => {
-    const feature = map?.forEachFeatureAtPixel(e.pixel, (feat) => feat);
-
-    infoRef.current = feature ? feature.get("title") : "";
-  };
 
   return (
     <>
