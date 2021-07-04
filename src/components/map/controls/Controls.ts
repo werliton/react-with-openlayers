@@ -1,9 +1,11 @@
 import { defaults, ScaleLine } from "ol/control";
 
-const scaleLine = defaults({
+const scaleLine = new ScaleLine();
+
+const controls = defaults({
   attributionOptions: {
     collapsible: false,
   },
-}).extend([new ScaleLine()]);
+}).extend([scaleLine]);
 
-export default scaleLine;
+export default controls;
