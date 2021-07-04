@@ -1,16 +1,12 @@
+import GeometryType from "ol/geom/GeometryType";
 import Draw from "ol/interaction/Draw";
-import Map from "ol/Map";
 import { source } from "../layers/Layers";
 
-const addInteraction = (map: Map | undefined) => {
-  const type: any = "Polygon";
+const type: GeometryType = GeometryType.POLYGON;
 
-  let draw = new Draw({
-    source,
-    type,
-  });
+const draw = new Draw({
+  source,
+  type,
+});
 
-  map?.addInteraction(draw);
-};
-
-export { addInteraction };
+export default draw;

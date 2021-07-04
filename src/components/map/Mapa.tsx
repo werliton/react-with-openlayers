@@ -4,9 +4,8 @@ import { view } from "./views/Views";
 import { layers } from "./layers/Layers";
 
 import "ol/ol.css";
-import { addInteraction } from "./interactions/Draw";
 import controls from "./controls/Controls";
-import interactions from "./interactions/Select";
+import interactions from "./interactions";
 
 const Mapa: React.FC = () => {
   const [map, setMap] = React.useState<Map>();
@@ -24,12 +23,7 @@ const Mapa: React.FC = () => {
     });
 
     setMap(mapInstance);
-    addInteraction(map);
   }, []);
-
-  useEffect(() => {
-    console.log("mudou", map);
-  }, [map]);
 
   return (
     <>

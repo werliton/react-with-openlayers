@@ -1,4 +1,4 @@
-import { defaults, Select } from "ol/interaction";
+import { Select } from "ol/interaction";
 import { Circle, Fill, Stroke, Style } from "ol/style";
 
 const select = new Select({
@@ -15,6 +15,4 @@ const select = new Select({
   }),
 });
 
-const interactions = defaults().extend([select]);
-
-export default interactions;
+export default select;
