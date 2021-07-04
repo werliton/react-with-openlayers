@@ -9,4 +9,10 @@ const draw = new Draw({
   type,
 });
 
+draw.on("drawend", (evt) => {
+  const feature: any = evt.feature;
+  const p = feature?.getGeometry();
+  console.log(p?.getCoordinates());
+});
+
 export default draw;
