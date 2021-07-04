@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import { Map, MapBrowserEvent } from "ol";
+import { Map } from "ol";
 import { view } from "./views/Views";
 import { layers } from "./layers/Layers";
-import { defaults } from "ol/control";
 
 import "ol/ol.css";
 import { addInteraction } from "./interactions/Draw";
+import controls from "./controls/Controls";
 
 const Mapa: React.FC = () => {
   const [map, setMap] = React.useState<Map>();
@@ -16,13 +16,9 @@ const Mapa: React.FC = () => {
   useEffect(() => {
     const mapInstance = new Map({
       target: mapRef.current,
-      layers: layers,
-      view: view,
-      controls: defaults({
-        attributionOptions: {
-          collapsible: false,
-        },
-      }),
+      layers,
+      view,
+      controls,
     });
 
     setMap(mapInstance);
